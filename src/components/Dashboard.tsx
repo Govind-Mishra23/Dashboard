@@ -47,22 +47,22 @@ const Dashboard: React.FC = () => {
           <h2>{sidebarOpen && 'Dashboard'}</h2>
         </div>
         <nav className="sidebar-nav">
-          <a href="#" className="nav-item active">
+          <button className="nav-item active">
             <LayoutDashboard size={20} />
             {sidebarOpen && <span>Overview</span>}
-          </a>
-          <a href="#" className="nav-item">
+          </button>
+          <button className="nav-item">
             <BarChart3 size={20} />
             {sidebarOpen && <span>Analytics</span>}
-          </a>
-          <a href="#" className="nav-item">
+          </button>
+          <button className="nav-item">
             <Users size={20} />
             {sidebarOpen && <span>Users</span>}
-          </a>
-          <a href="#" className="nav-item">
+          </button>
+          <button className="nav-item">
             <Settings size={20} />
             {sidebarOpen && <span>Settings</span>}
-          </a>
+          </button>
         </nav>
       </aside>
 
@@ -86,8 +86,8 @@ const Dashboard: React.FC = () => {
         <div className="dashboard-content">
           {/* Stats Cards */}
           <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <StatsCard key={index} {...stat} />
+            {stats.map((stat) => (
+              <StatsCard key={stat.title} {...stat} />
             ))}
           </div>
 
