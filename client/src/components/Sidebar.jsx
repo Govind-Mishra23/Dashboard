@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { cn } from '../lib/utils';
 import { IconButton } from './Button';
 
 export function Sidebar() {
+    // State for tracking active navigation item
+    const [activeNav, setActiveNav] = useState('brand'); // 'brand' is active by default
+
     const navItems = [
-        { icon: ActivityIcon, active: false },
-        { icon: BrandIcon, active: true },
-        { icon: DocumentIcon, active: false },
-        { icon: CommandIcon, active: false },
-        { icon: LayersIcon, active: false }, // Replaces FolderOpen for the cards icon
+        { id: 'activity', icon: ActivityIcon, label: 'Activity' },
+        { id: 'brand', icon: BrandIcon, label: 'Brand' },
+        { id: 'document', icon: DocumentIcon, label: 'Documents' },
+        { id: 'command', icon: CommandIcon, label: 'Commands' },
+        { id: 'layers', icon: LayersIcon, label: 'Layers' },
     ];
+
+    const handleNavClick = (navId) => {
+        setActiveNav(navId);
+        console.log(`Navigated to: ${navId}`);
+    };
+
+    const handleMessageClick = () => {
+        console.log('Messages clicked');
+    };
+
+    const handleSettingsClick = () => {
+        console.log('Settings clicked');
+    };
 
     return (
         <aside className="w-20 pl-4 py-7 flex flex-col items-center shrink-0 fixed top-0 left-0 h-screen z-10">
             <div className="mb-8">
-                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white">
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white cursor-pointer hover:opacity-80 transition-opacity">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fillRule="evenodd" clipRule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z" fill="black" />
                         <path d="M13.5 16.5C14.5 16.5 15.5 16 16 15.5" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
@@ -25,22 +41,37 @@ export function Sidebar() {
             </div>
 
             <nav className="flex flex-col gap-4 flex-1">
-                {navItems.map((item, idx) => (
+                {navItems.map((item) => (
                     <IconButton
-                        key={idx}
-                        className={cn("w-10 h-10 rounded-xl flex items-center justify-center", item.active ? "bg-[#e11d48] text-white hover:bg-[#be123c] hover:text-white" : "text-slate-900 bg-white border border-slate-100")}
+                        key={item.id}
+                        onClick={() => handleNavClick(item.id)}
+                        className={cn(
+                            "w-10 h-10 rounded-xl flex items-center justify-center transition-all cursor-pointer",
+                            activeNav === item.id
+                                ? "bg-[#e11d48] text-white hover:bg-[#be123c] hover:text-white shadow-md"
+                                : "text-slate-900 bg-white border border-slate-100 hover:bg-slate-50 hover:border-slate-200"
+                        )}
+                        aria-label={item.label}
                     >
-                        <item.icon active={item.active} />
+                        <item.icon active={activeNav === item.id} />
                     </IconButton>
                 ))}
             </nav>
 
             <div className="flex flex-col gap-4 mt-auto">
-                <IconButton className="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-900">
+                <IconButton
+                    onClick={handleMessageClick}
+                    className="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 transition-colors cursor-pointer relative"
+                    aria-label="Messages"
+                >
                     <MessageIcon />
                     <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-[#e11d48] rounded-full ring-2 ring-white"></div>
                 </IconButton>
-                <IconButton className="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-900">
+                <IconButton
+                    onClick={handleSettingsClick}
+                    className="w-10 h-10 rounded-full border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 transition-colors cursor-pointer"
+                    aria-label="Settings"
+                >
                     <SettingsIcon />
                 </IconButton>
             </div>

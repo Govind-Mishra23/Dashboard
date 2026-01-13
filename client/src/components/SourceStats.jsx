@@ -76,43 +76,57 @@ export function SourceStats() {
   ];
 
   return (
-    <Card className="bg-[#F6F6F6] rounded-[1.25rem] p-5 w-full">
+    <Card className="bg-[#F6F6F6] rounded-[1.25rem] p-2 sm:p-4 md:p-5 w-full overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-1.5 text-slate-600">
-          <Menu size={18} strokeWidth={2} />
-          <ChevronDown size={14} strokeWidth={2} />
+      <div className="flex justify-between items-center mb-2 sm:mb-4 px-1">
+        <div className="flex items-center gap-1 sm:gap-1.5 text-slate-600">
+          <Menu size={14} sm:size={18} strokeWidth={2} className="shrink-0" />
+          <ChevronDown
+            size={11}
+            sm:size={14}
+            strokeWidth={2}
+            className="shrink-0"
+          />
         </div>
-        <button className="bg-white text-slate-600 px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm border border-slate-200/50 hover:bg-slate-50 transition-colors">
-          Filters <SlidersHorizontal size={14} />
+        <button className="bg-white text-slate-600 px-1.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[9px] sm:text-sm font-medium flex items-center gap-1 sm:gap-2 shadow-sm border border-slate-200/50 hover:bg-slate-50 transition-colors shrink-0">
+          Filters <SlidersHorizontal size={11} sm:size={14} />
         </button>
       </div>
 
       {/* Platform List */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1.5 sm:gap-3">
         {platforms.map((platform) => (
           <div
             key={platform.id}
-            className="bg-white py-3 sm:py-3.5 px-3 sm:px-4 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white py-1.5 sm:py-3.5 px-1.5 sm:px-4 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition-shadow"
           >
-            <div className="grid grid-cols-[auto_1fr_auto_auto] items-center gap-2 sm:gap-3">
+            <div className="grid grid-cols-[20px_1fr_auto_auto] sm:grid-cols-[32px_1fr_auto_auto] items-center gap-1.5 sm:gap-3 overflow-hidden">
               {/* Icon */}
-              <div className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center shrink-0">
-                {platform.icon}
+              <div className="w-5 h-5 sm:w-7 sm:h-7 flex items-center justify-center shrink-0 overflow-hidden">
+                {platform.id === 3 ? (
+                  <span className="text-[#1769ff] font-bold text-[10px] sm:text-xl leading-none">
+                    Bē
+                  </span>
+                ) : (
+                  React.cloneElement(platform.icon, {
+                    className:
+                      "w-5 h-5 sm:w-7 sm:h-7 object-contain flex-shrink-0",
+                  })
+                )}
               </div>
 
               {/* Name */}
-              <span className="text-sm sm:text-base font-medium text-slate-500 whitespace-nowrap">
+              <span className="text-[10px] sm:text-base font-medium text-slate-500 truncate min-w-0">
                 {platform.name}
               </span>
 
               {/* Value */}
-              <span className="text-xs sm:text-sm font-bold text-black whitespace-nowrap">
+              <span className="text-[10px] sm:text-sm font-bold text-black whitespace-nowrap flex-shrink-0">
                 {platform.value}
               </span>
 
-              {/* Percentage pill */}
-              <span className="bg-slate-100 text-slate-600 text-xs sm:text-sm font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg min-w-[2.5rem] sm:min-w-[3rem] text-center shrink-0">
+              {/* Percent */}
+              <span className="bg-slate-100 text-slate-600 text-[8px] sm:text-sm font-medium px-1 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-lg min-w-[1.5rem] sm:min-w-[3rem] text-center shrink-0">
                 {platform.percent}
               </span>
             </div>

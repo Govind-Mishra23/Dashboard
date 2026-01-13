@@ -79,13 +79,13 @@ export function StatsRow() {
             </div>
           </div>
           <div className="flex items-center justify-between gap-1 sm:gap-1.5 lg:gap-2 p-0.5 sm:p-1 lg:p-1.5 pl-1 sm:pl-1.5 lg:pl-2 pr-1.5 sm:pr-2 lg:pr-2.5 bg-slate-50 rounded-full border border-slate-100 mt-1 sm:mt-2">
-            <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2 min-w-0 flex-1">
+            <div className="flex items-center gap-1 sm:gap-1.5 lg:gap-2 min-w-0 flex-1 overflow-hidden">
               <Avatar
                 size="xs"
-                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 border border-white flex-shrink-0"
+                className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 border border-white flex-shrink-0 object-cover"
                 src="https://i.pravatar.cc/150?u=7"
               />
-              <span className="text-[10px] sm:text-xs lg:text-sm font-semibold text-slate-700 truncate">
+              <span className="text-[10px] sm:text-xs lg:text-sm font-semibold text-slate-700 truncate min-w-0">
                 Mikasa
               </span>
             </div>
@@ -114,8 +114,8 @@ export function StatsRow() {
               $42,300
             </div>
           </div>
-          <div className="flex items-center justify-between gap-2 p-1.5 pl-3 pr-2 bg-white/10 rounded-full border border-white/10">
-            <span className="text-sm font-medium text-slate-200 truncate flex-1">
+          <div className="flex items-center justify-between gap-2 p-1.5 pl-3 pr-2 bg-white/10 rounded-full border border-white/10 overflow-hidden">
+            <span className="text-sm font-medium text-slate-200 truncate flex-1 min-w-0">
               Rolf Inc.
             </span>
             <div className="w-5 h-5 rounded-full bg-white text-slate-900 flex items-center justify-center cursor-pointer flex-shrink-0">
@@ -125,14 +125,14 @@ export function StatsRow() {
         </Card>
 
         {/* 4. Deals Card - equal width */}
-        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
-          <span className="text-[9px] sm:text-[10px] lg:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-2 group-hover:text-[#ff3b6b] transition-colors">
+        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-2.5 sm:p-3 lg:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
+          <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold text-slate-500 uppercase tracking-wide mb-1 sm:mb-1.5 group-hover:text-[#ff3b6b] transition-colors whitespace-nowrap px-1">
             Deals
           </span>
-          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-sm sm:text-base lg:text-lg font-bold my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
+          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3.5 lg:px-5 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-bold my-0.5 sm:my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
             256
           </div>
-          <span className="text-[9px] sm:text-[10px] lg:text-xs text-slate-400 font-semibold flex items-center gap-0.5 mt-1 group-hover:text-slate-500 transition-colors">
+          <span className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-400 font-semibold flex items-center gap-0.5 mt-0.5 sm:mt-1 group-hover:text-slate-500 transition-colors">
             <ArrowDownRight
               size={10}
               strokeWidth={2}
@@ -143,25 +143,25 @@ export function StatsRow() {
         </Card>
 
         {/* 5. Value Card - same width as others */}
-        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
-          <span className="text-[9px] sm:text-[10px] lg:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-2 group-hover:text-[#ff3b6b] transition-colors">
+        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-2.5 sm:p-3 lg:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
+          <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold text-slate-500 uppercase tracking-wide mb-1 sm:mb-1.5 group-hover:text-[#ff3b6b] transition-colors whitespace-nowrap px-1">
             Value
           </span>
-          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-sm sm:text-base lg:text-lg font-bold my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
+          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3.5 lg:px-5 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-bold my-0.5 sm:my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
             528k
           </div>
-          <span className="text-[9px] sm:text-[10px] lg:text-xs text-slate-400 font-semibold flex items-center gap-0.5 mt-1 group-hover:text-slate-500 transition-colors">
+          <span className="text-[8px] sm:text-[9px] lg:text-[10px] text-slate-400 font-semibold flex items-center gap-0.5 mt-0.5 sm:mt-1 group-hover:text-slate-500 transition-colors">
             <ArrowUpRight size={10} strokeWidth={2} className="sm:w-3 sm:h-3" />{" "}
             7.9%
           </span>
         </Card>
 
         {/* 6. Win Rate Card - equal width */}
-        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
-          <span className="text-[9px] sm:text-[10px] lg:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1 sm:mb-2 group-hover:text-[#ff3b6b] transition-colors">
+        <Card className="lg:col-span-1 flex flex-col items-center justify-center p-2.5 sm:p-3 lg:p-4 rounded-2xl shadow-sm border-2 border-slate-200 bg-white w-full h-[100px] sm:h-[120px] lg:h-[140px] text-center transition-all duration-200 hover:border-[#ff3b6b] hover:shadow-lg active:border-[#ff3b6b] group cursor-pointer">
+          <span className="text-[8px] sm:text-[9px] lg:text-[10px] font-bold text-slate-500 uppercase tracking-wide mb-1 sm:mb-1.5 group-hover:text-[#ff3b6b] transition-colors whitespace-nowrap px-1">
             Win rate
           </span>
-          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 lg:py-2 text-sm sm:text-base lg:text-lg font-bold my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
+          <div className="bg-slate-200 text-slate-700 rounded-full px-2.5 sm:px-3.5 lg:px-5 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs lg:text-sm font-bold my-0.5 sm:my-1 group-hover:bg-[#ff3b6b] group-hover:text-white transition-all">
             44%
           </div>
           <span className="text-[9px] sm:text-[10px] lg:text-xs text-slate-400 font-semibold flex items-center gap-0.5 mt-1 group-hover:text-slate-500 transition-colors">
@@ -172,39 +172,39 @@ export function StatsRow() {
       </div>
 
       {/* Bottom Row: User Stats Pills - Compact */}
-      <div className="flex flex-wrap lg:flex-nowrap items-center gap-2.5 pt-1">
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-2 pt-1">
         {bottomStats.map((stat) => (
           <div
             key={stat.id}
-            className="flex-1 min-w-[140px] max-w-[180px] bg-white rounded-full p-1 pl-1.5 pr-2.5 flex items-center justify-between shadow-sm border border-slate-100 cursor-pointer hover:shadow-md transition-shadow"
+            className="flex-1 min-w-[120px] max-w-full lg:max-w-[180px] bg-white rounded-full p-1 pl-1.5 pr-2.5 flex items-center justify-between shadow-sm border border-slate-100 cursor-pointer hover:shadow-md transition-shadow overflow-hidden"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 overflow-hidden">
               <Avatar
                 size="sm"
                 src={stat.img}
-                className="w-7 h-7 border-2 border-white shadow-sm flex-shrink-0"
+                className="w-6 h-6 sm:w-7 sm:h-7 border-2 border-white shadow-sm flex-shrink-0 object-cover"
               />
-              <span className="text-[11px] font-bold text-slate-700 truncate">
+              <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 truncate min-w-0">
                 {stat.value}
               </span>
             </div>
-            <span className="text-[10px] font-medium text-slate-400 flex-shrink-0">
+            <span className="text-[9px] sm:text-[10px] font-medium text-slate-400 flex-shrink-0 ml-1">
               {stat.percent}
             </span>
           </div>
         ))}
 
         {/* C Icon Stat */}
-        <div className="flex-1 min-w-[140px] max-w-[180px] bg-white rounded-full p-1 pl-1.5 pr-2.5 flex items-center justify-between border border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors shadow-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-bold shadow-sm flex-shrink-0">
+        <div className="flex-1 min-w-[120px] max-w-full lg:max-w-[180px] bg-white rounded-full p-1 pl-1.5 pr-2.5 flex items-center justify-between border border-slate-100 cursor-pointer hover:bg-slate-50 transition-colors shadow-sm overflow-hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 overflow-hidden">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] sm:text-xs font-bold shadow-sm flex-shrink-0">
               C
             </div>
-            <span className="text-[11px] font-bold text-slate-700 truncate">
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 truncate min-w-0">
               $45,386
             </span>
           </div>
-          <span className="text-[10px] font-medium text-slate-400 flex-shrink-0">
+          <span className="text-[9px] sm:text-[10px] font-medium text-slate-400 flex-shrink-0 ml-1">
             8.58%
           </span>
         </div>

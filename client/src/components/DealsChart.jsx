@@ -87,13 +87,13 @@ export function DealsChart() {
   ];
 
   return (
-    <Card className="bg-[#F6F6F6] rounded-[1.25rem] p-4 w-full h-full flex flex-col">
+    <Card className="bg-[#F6F6F6] rounded-[1.25rem] p-3 sm:p-4 w-full h-full flex flex-col overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-1 text-slate-600">
           <svg
             viewBox="0 0 24 24"
-            className="w-4 h-4"
+            className="w-4 h-4 shrink-0"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -102,28 +102,25 @@ export function DealsChart() {
             <line x1="12" y1="20" x2="12" y2="4"></line>
             <line x1="6" y1="20" x2="6" y2="14"></line>
           </svg>
-          <ChevronDown size={12} strokeWidth={2} />
+          <ChevronDown size={12} strokeWidth={2} className="shrink-0" />
         </div>
-        <button className="bg-white text-slate-600 px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm border border-slate-200/50">
+        <button className="bg-white text-slate-600 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium flex items-center gap-1.5 sm:gap-2 shadow-sm border border-slate-200/50 shrink-0">
           Filters <SlidersHorizontal size={14} />
         </button>
       </div>
 
       {/* Bar Chart Area - Fixed height container */}
-      <div className="flex-1 flex items-end justify-center gap-3 min-h-[200px] pb-4">
+      <div className="flex-1 flex items-end justify-center gap-1.5 sm:gap-3 min-h-[180px] sm:min-h-[200px] pb-4 px-1">
         {platforms.map((platform) => (
           <div
             key={platform.id}
-            className="flex flex-col items-center justify-end h-full"
+            className="flex flex-col items-center justify-end h-full flex-1 max-w-[56px]"
           >
             {/* Bar with striped pattern */}
             <div
-              className="rounded-xl flex items-start justify-center pt-3 relative overflow-hidden"
+              className="rounded-xl flex items-start justify-center pt-2 sm:pt-3 relative overflow-hidden w-full transition-all duration-300"
               style={{
                 height: `${platform.heightPercent}%`,
-                width: `${platform.heightPercent}%`,
-                maxWidth: "56px",
-                minWidth: "32px",
                 background:
                   platform.id === 5
                     ? `repeating-linear-gradient(
@@ -138,8 +135,8 @@ export function DealsChart() {
               }}
             >
               {/* Icon container */}
-              <div className="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center border border-slate-100/50">
-                {platform.icon}
+              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-white shadow-sm flex items-center justify-center border border-slate-100/50 shrink-0">
+                {React.cloneElement(platform.icon, { className: "w-3 h-3 sm:w-4 sm:h-4" })}
               </div>
             </div>
           </div>
@@ -147,9 +144,9 @@ export function DealsChart() {
       </div>
 
       {/* Footer */}
-      <div className="text-center pt-3 border-t border-slate-200/50">
-        <p className="text-base font-medium text-slate-800">Deals amount</p>
-        <p className="text-sm text-slate-400 flex items-center justify-center gap-1">
+      <div className="text-center pt-3 border-t border-slate-200/50 shrink-0">
+        <p className="text-sm sm:text-base font-medium text-slate-800">Deals amount</p>
+        <p className="text-xs sm:text-sm text-slate-400 flex items-center justify-center gap-1">
           by referrer category <ChevronDown size={12} />
         </p>
       </div>

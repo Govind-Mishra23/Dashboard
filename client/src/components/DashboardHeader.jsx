@@ -26,15 +26,15 @@ export function DashboardHeader() {
           {teamMembers.map((member, idx) => (
             <div
               key={idx}
-              className="flex items-center bg-white rounded-full p-1 pr-3 border border-slate-100 shadow-sm cursor-pointer hover:border-slate-200 transition-colors gap-2"
+              className="flex items-center bg-white rounded-full p-1 pr-3 border border-slate-100 shadow-sm cursor-pointer hover:border-slate-200 transition-colors gap-2 overflow-hidden"
             >
               <Avatar
                 size="sm"
                 alt={member.name}
                 src={member.img}
-                className="w-7 h-7"
+                className="w-7 h-7 object-cover flex-shrink-0"
               />
-              <span className="text-xs font-medium text-slate-600">
+              <span className="text-xs font-medium text-slate-600 truncate min-w-0">
                 {member.name}
               </span>
             </div>
